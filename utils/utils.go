@@ -18,6 +18,15 @@ func StrToInt(s string, fallback int) int {
 	return v
 }
 
+func StrSliceToIntSlice(strs []string) []int {
+	ints := make([]int, len(strs))
+	for in, v := range strs {
+		i := StrToInt(v, 0)
+		ints[in] = i
+	}
+	return ints
+}
+
 func StrToSlice(s string, delim string) []string {
 	return strings.Split(s, delim)
 }

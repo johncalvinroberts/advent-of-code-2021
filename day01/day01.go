@@ -8,10 +8,14 @@ import (
 
 // find the number of items which are an increase over previous item
 func Part1(input string) int {
-	readings := utils.StrToSlice(input, "\n")
+	readings1 := utils.StrToSlice(input, "\n")
+	readings := utils.StrSliceToIntSlice(readings1)
+	fmt.Println(len(readings))
 	count := 0
 	for i := 1; i < len(readings); i++ {
-		if utils.StrToInt(readings[i-1], 0) < utils.StrToInt(readings[i], 0) {
+		// fmt.Printf(" readings[i] %00d\n", readings[i])
+		// fmt.Printf(" readings[i-1] %00d\n", readings[i-1])
+		if readings[i-1] < readings[i] {
 			count++
 		}
 	}
@@ -20,21 +24,12 @@ func Part1(input string) int {
 
 // find the number of 3-measurement-windows which are an increase over the previous
 func Part2(input string) int {
-	readings := utils.StrToSlice(input, "\n")
+	readings := utils.StrSliceToIntSlice(utils.StrToSlice(input, "\n"))
 	count := 0
-	fmt.Println("PRIIIIIIINTIIING")
-	fmt.Println(len(readings) - 2)
-	// key is window, value is the sum
-	windows := make(map[int]int)
-	for i := 0; i < len(readings)-2; i++ {
-		windowStr := readings[i : i+3]
-		for j := 0; j < len(windowStr); j++ {
-			windows[i] += utils.StrToInt(windowStr[j], 0)
-		}
-		if i == 0 {
-			continue
-		}
-		if windows[i] > windows[i-1] {
+	for i := 1; i+2 < len(readings); i++ {
+		previous := readings[i-1] + readings[i] + readings[i+1]
+		current := readings[i] + readings[i+1] + readings[i+2]
+		if current > previous {
 			count++
 		}
 	}

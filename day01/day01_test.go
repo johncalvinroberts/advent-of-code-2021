@@ -18,9 +18,6 @@ var part1Fixture string = `199
 263
 `
 
-var part2Fixture string = `
-`
-
 func TestPart1(t *testing.T) {
 	result := Part1(part1Fixture)
 	utils.Assert(result, 7, t)
