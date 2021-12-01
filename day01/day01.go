@@ -1,8 +1,6 @@
 package day01
 
 import (
-	"fmt"
-
 	"github.com/johncalvinroberts/advent-of-code-2021/utils"
 )
 
@@ -10,11 +8,8 @@ import (
 func Part1(input string) int {
 	readings1 := utils.StrToSlice(input, "\n")
 	readings := utils.StrSliceToIntSlice(readings1)
-	fmt.Println(len(readings))
 	count := 0
 	for i := 1; i < len(readings); i++ {
-		// fmt.Printf(" readings[i] %00d\n", readings[i])
-		// fmt.Printf(" readings[i-1] %00d\n", readings[i-1])
 		if readings[i-1] < readings[i] {
 			count++
 		}
