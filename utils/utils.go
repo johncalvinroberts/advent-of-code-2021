@@ -31,6 +31,11 @@ func StrToSlice(s string, delim string) []string {
 	return strings.Split(s, delim)
 }
 
+func StrToTuple(s string, delim string) (string, string) {
+	x := strings.Split(s, delim)
+	return x[0], x[1]
+}
+
 func SumSlice(s []int) int {
 	result := 0
 	for _, v := range s {
