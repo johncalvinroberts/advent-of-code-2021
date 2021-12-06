@@ -7,6 +7,7 @@ import (
 	"github.com/johncalvinroberts/advent-of-code-2021/day01"
 	"github.com/johncalvinroberts/advent-of-code-2021/day02"
 	"github.com/johncalvinroberts/advent-of-code-2021/day03"
+	"github.com/johncalvinroberts/advent-of-code-2021/day04"
 	"github.com/johncalvinroberts/advent-of-code-2021/utils"
 )
 
@@ -27,5 +28,8 @@ func main() {
 	case 3:
 		fmt.Printf("part 1: %d\n", day03.Part1(utils.Readfile(day)))
 		// fmt.Printf("part 2: %d\n", day02.Part2(utils.Readfile(day)))
+	case 4:
+		fmt.Printf("part 1: %d\n", day04.Part1(utils.Readfile(day)))
+		fmt.Printf("part 2: %d\n", day04.Part2(utils.Readfile(day)))
 	}
 }
