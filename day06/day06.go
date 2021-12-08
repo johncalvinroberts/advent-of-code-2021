@@ -14,18 +14,32 @@ func Part2(input string) int {
 	return calculateFish(input, 256)
 }
 
-func calculateFish(input string, count int) int {
+func calculateFish(input string, days int) int {
 	fish := utils.StrSliceToIntSlice(utils.StrToSlice(input, ","))
-	for i := 0; i < count; i++ {
-		fmt.Printf("Day: %d, len%d\n", i, len(fish))
-		for j, v := range fish {
-			if v == 0 {
-				fish[j] = 6
-				fish = append(fish, 8)
+	// instead of using a huge list, use a map of indexes
+	// each index stores the number of fish at that age
+	var counts [9]int
+	for _, n := range fish {
+		counts[n]++
+	}
+	for i := 0; i < days; i++ {
+
+		var nextCounts [9]int
+		for ttl, num := range counts {
+			if ttl == 0 {
+				nextCounts[6] += num
+				nextCounts[8] += num
 			} else {
-				fish[j]--
+				nextCounts[ttl-1] += num
 			}
 		}
+		counts = nextCounts
 	}
-	return len(fish)
+	fmt.Print("")
+	sum := 0
+
+	for _, count := range counts {
+		sum += count
+	}
+	return sum
 }

@@ -37,7 +37,7 @@ func main() {
 		fmt.Printf("part 1: %d\n", day05.Part1(utils.Readfile(day)))
 		// fmt.Printf("part 2: %d\n", day04.Part2(utils.Readfile(day)))
 	case 6:
-		// fmt.Printf("part 1: %d\n", day06.Part1(utils.Readfile(day)))
+		fmt.Printf("part 1: %d\n", day06.Part1(utils.Readfile(day)))
 		fmt.Printf("part 2: %d\n", day06.Part2(utils.Readfile(day)))
 	}
 }
