@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"regexp"
 	"strconv"
 	"strings"
 	"testing"
@@ -63,10 +64,33 @@ func Readfile(day int) string {
 	return strings.TrimSuffix(string(contents), "\n")
 }
 
+func ExtractIntsToStrSlice(v string) []string {
+	re := regexp.MustCompile("[0-9]+")
+	strs := re.FindAllString(v, -1)
+	return strs
+}
+
 func Assert(got int, want int, t *testing.T) {
 	if got != want {
 		t.Errorf("Expected %d, received %d", want, got)
 	} else {
 		t.Logf("Got %d, want %d. Good job ✨.", got, want)
 	}
+}
+
+func Absolute(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+
+func Sign(x int) int {
+	if x < 0 {
+		return -1
+	}
+	if x > 0 {
+		return 1
+	}
+	return 0
 }
