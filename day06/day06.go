@@ -1,8 +1,6 @@
 package day06
 
 import (
-	"fmt"
-
 	"github.com/johncalvinroberts/advent-of-code-2021/utils"
 )
 
@@ -35,7 +33,6 @@ func calculateFish(input string, days int) int {
 		}
 		counts = nextCounts
 	}
-	fmt.Print("")
 	sum := 0
 
 	for _, count := range counts {
