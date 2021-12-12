@@ -23,6 +23,6 @@ func TestPart1(t *testing.T) {
 }
 func TestPart2(t *testing.T) {
 	r := Part2(fixture)
-	// 61229
+	//61229
 	utils.Assert(r, 0, t)
 }
